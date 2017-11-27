@@ -25,7 +25,24 @@
             android:id="@+id/textView"
             android:layout_weight="1" />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/colorAccent"
+        >
 
+        <TextView
+            android:text="Coordinates"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:textSize="18dp"
+            android:textColor="#FFFFFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/coordinates"
+            android:layout_weight="1" />
+    </LinearLayout>
     <LinearLayout
         android:layout_height="0dp"
         android:layout_width="match_parent"
@@ -61,14 +78,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/Pollution"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="GO to Pollution Data"
-                />
+    <Button
+        android:id="@+id/Pollution"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="GO to Pollution Data"
+        />
+</LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/service"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Start service "
+                    />
+
+            </LinearLayout>
+
+
 
         </RelativeLayout>
 
@@ -86,5 +121,5 @@
         </RelativeLayout>-->
 
     </LinearLayout>
+    </LinearLayout>
 
-</LinearLayout>
