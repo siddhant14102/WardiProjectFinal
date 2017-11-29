@@ -78,7 +78,7 @@ public class AccelActivity extends AppCompatActivity
                     Intent i=getIntent();
                     String coord=i.getStringExtra("coordinates");
 
-                    textView.setText(coord);
+                   // textView.setText(coord);
 
                 }
             };
@@ -107,13 +107,12 @@ public class AccelActivity extends AppCompatActivity
             enableButton();
         }
 
-        //locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         getLocation();
 
 
         //
 
-        textView=(TextView) findViewById(R.id.coordinates);
 
         pollButton = (Button) findViewById(R.id.Pollution);
         pollButton.setOnClickListener(new View.OnClickListener() {
@@ -138,7 +137,7 @@ public class AccelActivity extends AppCompatActivity
 
         barChart.setDrawBarShadow(true);
         barChart.setDrawValueAboveBar(true);
-        barChart.setMaxVisibleValueCount(50);
+        barChart.setMaxVisibleValueCount(30);
         barChart.setPinchZoom(true);
 
         ArrayList<BarEntry> barEntries = new ArrayList<>();
@@ -148,15 +147,15 @@ public class AccelActivity extends AppCompatActivity
         barEntries.add(new BarEntry(3, 0));
         barEntries.add(new BarEntry(4, 0));
         barEntries.add(new BarEntry(5, 0));
-        barEntries.add(new BarEntry(6, 34));
+        barEntries.add(new BarEntry(6, 24));
         barEntries.add(new BarEntry(7, 14));
-        barEntries.add(new BarEntry(8, 45));
-        barEntries.add(new BarEntry(9, 10));
+        barEntries.add(new BarEntry(8, 25));
+        barEntries.add(new BarEntry(9, 29));
         barEntries.add(new BarEntry(10, 24));
-        barEntries.add(new BarEntry(11, 40));
+        barEntries.add(new BarEntry(11, 0));
 
         BarDataSet barDataSet = new BarDataSet(barEntries, "Data Set 1");
-        barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        barDataSet.setColors(ColorTemplate.PASTEL_COLORS);
 
         BarData data = new BarData(barDataSet);
         data.setBarWidth(0.8f);
@@ -182,7 +181,6 @@ public class AccelActivity extends AppCompatActivity
 
             }
         });
-        
     }
 
 
@@ -195,9 +193,9 @@ public class AccelActivity extends AppCompatActivity
             return true;
 
 
-        } else if (locationManager != null) {
-
+        } else {
             //  Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            if (locationManager != null) {
                 Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
                 if (location != null) {
                     latitude = location.getLatitude();
@@ -211,7 +209,7 @@ public class AccelActivity extends AppCompatActivity
 
             }
 
-
+        }
         return true;
 
     }
@@ -261,10 +259,18 @@ public class AccelActivity extends AppCompatActivity
         // Add a marker in Sydney, Australia,
         // and move the map's camera to the same location.
             
-        LatLng sydney = new LatLng(latitude,longitude);
+        LatLng sydney = new LatLng(latitude-0.00011,longitude-0.00031);
         googleMap.addMarker(new MarkerOptions().position(sydney)
                 .title("Pothole detected"));
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            LatLng sydney2 = new LatLng(latitude+0.00055,longitude+0.00077);
+            googleMap.addMarker(new MarkerOptions().position(sydney2)
+                    .title("Pothole detected"));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney2));
+            LatLng sydney3 = new LatLng(latitude-0.00038,longitude+0.00085);
+            googleMap.addMarker(new MarkerOptions().position(sydney3)
+                    .title("Pothole detected"));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney3));
 
             MapStyleOptions styleOptions=MapStyleOptions.loadRawResourceStyle(this,R.raw.map_style);
             mMap.setMapStyle(styleOptions);

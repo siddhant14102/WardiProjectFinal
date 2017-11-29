@@ -38,6 +38,24 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/colorAccent"
+        >
+
+        <TextView
+            android:text="Monthly Avg. PM2.5 "
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:paddingTop="6dp"
+            android:textSize="15dp"
+            android:textColor="#FFFFFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:baselineAligned="false">
 
@@ -48,7 +66,7 @@
 
             <Button
                 android:id="@+id/Potholes"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text=" GO to Potholes Data"

@@ -63,7 +63,7 @@ public class PollActivity extends AppCompatActivity  {
 //        lineChart.setMaxVisibleValueCount(100);
         lineChart.setPinchZoom(true);
 
-        LimitLine upperLimit=new LimitLine(65f, "Danger");
+        LimitLine upperLimit=new LimitLine(280f, "Danger");
         upperLimit.setLineWidth(4f);
         upperLimit.enableDashedLine(10f,10f,0f);
         upperLimit.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_TOP);
@@ -80,18 +80,14 @@ public class PollActivity extends AppCompatActivity  {
 
 
 
-        Entries.add(new BarEntry(0,0));
-        Entries.add(new BarEntry(1,0));
-        Entries.add(new BarEntry(2,0));
-        Entries.add(new BarEntry(3,0));
-        Entries.add(new BarEntry(4,0));
-        Entries.add(new BarEntry(5,56));
-        Entries.add(new BarEntry(6,34));
-        Entries.add(new BarEntry(7,94));
-        Entries.add(new BarEntry(8,65));
-        Entries.add(new BarEntry(9,80));
-        Entries.add(new BarEntry(10,24));
-        Entries.add(new BarEntry(11,40));
+        Entries.add(new BarEntry(0,310));
+        Entries.add(new BarEntry(1,324));
+        Entries.add(new BarEntry(2,308));
+        Entries.add(new BarEntry(3,298));
+        Entries.add(new BarEntry(4,304));
+        Entries.add(new BarEntry(5,296));
+        Entries.add(new BarEntry(6,271));
+
 
         LineDataSet lineDataSet=new LineDataSet(Entries, "Data Set 1");
         lineDataSet.setFillAlpha(110);
@@ -103,7 +99,7 @@ public class PollActivity extends AppCompatActivity  {
 
         LineData data= new LineData(dataSets);
         lineChart.setData(data);
-        String[] months=new String [] {"Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"};
+        String[] months=new String [] {"Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"};
 
         XAxis xAxis=lineChart.getXAxis();
         xAxis.setValueFormatter(new MyAxis(months));
